@@ -3,6 +3,7 @@ package io.spreatty.codekata13.view;
 import io.spreatty.codekata13.view.node.Node;
 
 import java.io.PrintStream;
+import java.util.Comparator;
 
 /**
  * A class that prints tree structure using indentation of 4 spaces.
@@ -31,7 +32,8 @@ public class ConsoleTreeView {
     }
 
     /**
-     * Prints tree structure starting from provided node.
+     * Prints tree structure starting from provided node. When printing child nodes, file nodes
+     * come first.
      *
      * @param node
      *        A starting point for this viewer
@@ -45,7 +47,9 @@ public class ConsoleTreeView {
         }
         print(getNodeHeader(node));
         indent();
-        node.getChildren().forEach(this::print);
+        node.getChildren().stream()
+                .sorted(Comparator.comparing(Node::isDirectory))
+                .forEachOrdered(this::print);
         unindent();
     }
 

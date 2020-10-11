@@ -13,5 +13,7 @@ public interface Node {
 
     List<Node> getChildren();
 
+    boolean isDirectory();
+
     boolean hasErrors();
 }

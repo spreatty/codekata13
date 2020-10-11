@@ -28,6 +28,11 @@ public class DirectoryNode extends AbstractNode {
     }
 
     @Override
+    public boolean isDirectory() {
+        return true;
+    }
+
+    @Override
     public boolean hasErrors() {
         return children.stream().anyMatch(Node::hasErrors);
     }

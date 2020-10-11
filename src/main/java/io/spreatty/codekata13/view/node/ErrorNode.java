@@ -27,6 +27,11 @@ public final class ErrorNode extends AbstractNode {
         return Collections.emptyList();
     }
 
+    @Override
+    public boolean isDirectory() {
+        return false;
+    }
+
     /**
      * Always returns {@code true}.
      *

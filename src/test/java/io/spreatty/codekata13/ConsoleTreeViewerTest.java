@@ -41,9 +41,9 @@ public class ConsoleTreeViewerTest {
 
         String ln = System.lineSeparator();
         String expected = root.getName() + " : " + root.getLineCount()
+                + ln + "    " + childFile.getName() + " : " + childFile.getLineCount()
                 + ln + "    " + childDirectory.getName() + " : " + childDirectory.getLineCount()
                 + ln + "        " + grandChildErrorFile.getName() + " : IO error"
-                + ln + "    " + childFile.getName() + " : " + childFile.getLineCount()
                 + ln;
 
         consoleTreeView.print(root);
