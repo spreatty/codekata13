@@ -43,9 +43,9 @@ going to show how string "cancels" comment and thus prevents lines from discardi
 To process overlapping properly we need to detect literal bound correctly, and that is how I came
 up with the next case.
 
-#### Literals may contain escaped characters that represent their bounds
-I mean these guys: `\"`, `\'`. The problem here is that can not simply find closing sequence
-(i.e. `"`), but also consider the context. Additionally, string literal may contain sequence like
+#### Literals may contain escaped characters that represent their boundaries
+I mean these guys: `\"`, `\'`. The problem here is that we can not simply find closing sequence
+(i.e. `"`), we must also consider the context. Additionally, string literal may contain sequence like
 this `\\\\\\\"`, it is even hard to tell whether it is escaped. Our example becomes more and more
 complicated:
 ```
