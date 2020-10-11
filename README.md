@@ -40,7 +40,7 @@ going to show how string "cancels" comment and thus prevents lines from discardi
 3       char c = '"'; // This line does not open string literal because it is inside character literal */
 4   }
 ```
-To process overlapping properly we need to detect literal bound correctly, and that is how I came
+To process overlapping properly we need to detect literal boundaries correctly, and that is how I came
 up with the next case.
 
 #### Literals may contain escaped characters that represent their boundaries
