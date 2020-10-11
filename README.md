@@ -7,6 +7,8 @@ This is a solution for http://codekata.com/kata/kata13-counting-code-lines/
 The project requires Maven 3.6.0+ and JDK 11+ for building.\
 \
 To build project use following command: `mvn clean package`.\
+This will clean previous build if exists, run unit tests, and create executable *.jar file.\
+\
 Then to run the compiled program type: `java -jar target/*.jar file-or-directory-name`.
 
 ## Solution details
