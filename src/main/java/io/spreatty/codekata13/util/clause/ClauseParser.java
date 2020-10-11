@@ -5,6 +5,17 @@ import java.util.Iterator;
 import java.util.Optional;
 import java.util.stream.Stream;
 
+/**
+ * The {@code ClauseParser} class allows application to break string into
+ * {@linkplain Parenthesis parentheses}. This parser uses collection of rules represented by
+ * {@link Clause} class.
+ *
+ * <p> The parser will split text into parentheses based on provided clauses. The text that does
+ * not match any clause will create parenthesis with null type.
+ *
+ * @param <T>
+ *        A class type for {@code Clause.type} parameter
+ */
 public class ClauseParser<T> implements Iterator<Parenthesis<T>> {
     private final String source;
     private final Collection<Clause<T>> clauses;
@@ -12,6 +23,18 @@ public class ClauseParser<T> implements Iterator<Parenthesis<T>> {
     private Opening opening = null;
     private int position = 0;
 
+    /**
+     * Creates a new {@code ClauseParser} for provided source and set of rules.
+     *
+     * @param source
+     *        Source string
+     *
+     * @param clauses
+     *        Collection of rules represented by {@link Clause} class
+     *
+     * @throws NullPointerException
+     *         If source or collection of clauses is null
+     */
     public ClauseParser(String source, Collection<Clause<T>> clauses) {
         if (source == null || clauses == null) {
             throw new NullPointerException();
@@ -20,6 +43,14 @@ public class ClauseParser<T> implements Iterator<Parenthesis<T>> {
         this.clauses = clauses;
     }
 
+    /**
+     * Collects resulting {@linkplain Parenthesis parentheses} into sequential {@link Stream}. This
+     * will also move the current position to an end of the source making this class unavailable
+     * for further usage.
+     *
+     * @return A sequential {@link Stream} over {@linkplain Parenthesis parentheses} parsed by this
+     * class
+     */
     public Stream<Parenthesis<T>> toStream() {
         Stream.Builder<Parenthesis<T>> streamBuilder = Stream.builder();
         forEachRemaining(streamBuilder);

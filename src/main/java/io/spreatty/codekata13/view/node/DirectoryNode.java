@@ -3,9 +3,18 @@ package io.spreatty.codekata13.view.node;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * A class representing directory in <i>node hierarchy</i>. This node may have any number of child
+ * nodes of any type. The methods have no own logic, but fully rely on children's values.
+ */
 public class DirectoryNode extends AbstractNode {
     private List<Node> children;
 
+    /**
+     * Returns total number of lines in all child nodes. Does not count nodes that have errors.
+     *
+     * @return Total number of lines
+     */
     @Override
     public int getLineCount() {
         return children.stream()

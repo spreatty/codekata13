@@ -1,10 +1,10 @@
 package io.spreatty.codekata13;
 
 import io.spreatty.codekata13.io.FileCrawler;
-import io.spreatty.codekata13.view.node.FileNode;
 import io.spreatty.codekata13.io.FileReader;
-import io.spreatty.codekata13.view.node.Node;
 import io.spreatty.codekata13.source.SourceAnalyzer;
+import io.spreatty.codekata13.view.node.FileNode;
+import io.spreatty.codekata13.view.node.Node;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,9 +16,9 @@ import java.io.IOException;
 import java.util.List;
 
 public class FileCrawlerTest {
-    private static File rootDirectory;
-    private static File childFile;
-    private static File childDirectory;
+    private File rootDirectory;
+    private File childFile;
+    private File childDirectory;
 
     private static SourceAnalyzer sourceAnalyzer;
 

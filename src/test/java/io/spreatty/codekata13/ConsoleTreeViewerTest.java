@@ -6,7 +6,6 @@ import io.spreatty.codekata13.view.node.ErrorNode;
 import io.spreatty.codekata13.view.node.FileNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -47,7 +46,7 @@ public class ConsoleTreeViewerTest {
                 + ln + "    " + childFile.getName() + " : " + childFile.getLineCount()
                 + ln;
 
-        consoleTreeView.render(root);
+        consoleTreeView.print(root);
         Assertions.assertEquals(expected, output.toString());
     }
 }

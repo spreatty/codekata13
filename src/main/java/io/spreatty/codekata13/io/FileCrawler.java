@@ -11,16 +11,48 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
+/**
+ * Crawls the file system and analyzes found source files.
+ */
 public class FileCrawler {
-    private SourceAnalyzer sourceAnalyzer;
-    private FileReader fileReader;
+    private final SourceAnalyzer sourceAnalyzer;
+    private final FileReader fileReader;
 
+    /**
+     * Creates a new {@code FileCrawler} instance with provided dependencies.
+     *
+     * @param sourceAnalyzer
+     *        A {@link SourceAnalyzer} instance
+     * @param fileReader
+     *        A {@link FileReader} instance
+     *
+     * @throws NullPointerException
+     *         If any argument is {@code null}
+     */
     public FileCrawler(SourceAnalyzer sourceAnalyzer, FileReader fileReader) {
+        if (sourceAnalyzer == null || fileReader == null) {
+            throw new NullPointerException();
+        }
         this.sourceAnalyzer = sourceAnalyzer;
         this.fileReader = fileReader;
     }
 
+    /**
+     * Crawls the file system starting from provided file. Directories that do not have at least
+     * one file with at least one line or an error are discarded.
+     *
+     * @param file
+     *        Starting point for crawl
+     *
+     * @return Tree structure containing results of checked files
+     *
+     * @throws NullPointerException
+     *         If file is {@code null}
+     */
     public Node crawl(File file) {
+        if (file == null) {
+            throw new NullPointerException();
+        }
         return file.isDirectory() ? directory(file): file(file);
     }
 

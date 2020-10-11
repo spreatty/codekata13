@@ -2,6 +2,9 @@ package io.spreatty.codekata13.view.node;
 
 import java.util.Objects;
 
+/**
+ * An abstraction that implements common methods for child classes in <i>node hierarchy</i>.
+ */
 public abstract class AbstractNode implements Node {
     private String name;
 

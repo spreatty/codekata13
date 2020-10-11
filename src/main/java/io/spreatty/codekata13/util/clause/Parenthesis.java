@@ -2,6 +2,12 @@ package io.spreatty.codekata13.util.clause;
 
 import java.util.Objects;
 
+/**
+ * POJO representing parenthesis extracted from string by {@link ClauseParser}.
+ *
+ * @param <T>
+ *        A class type for {@code type} parameter
+ */
 public class Parenthesis<T> {
     private final T type;
     private final String token;

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class SourceAnalyzerTest {
-    private static SourceAnalyzer sourceAnalyzer = new SourceAnalyzer();
+    private static final SourceAnalyzer sourceAnalyzer = new SourceAnalyzer();
 
     @Test
     void empty() {

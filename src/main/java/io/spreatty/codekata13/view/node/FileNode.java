@@ -4,6 +4,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * A class representing successfully processed file in <i>node hierarchy</i>. This node can not
+ * have children and errors.
+ */
 public class FileNode extends AbstractNode {
     private int lineCount;
 
@@ -12,11 +16,21 @@ public class FileNode extends AbstractNode {
         return lineCount;
     }
 
+    /**
+     * Always returns empty list.
+     *
+     * @return Empty list
+     */
     @Override
     public List<Node> getChildren() {
         return Collections.emptyList();
     }
 
+    /**
+     * Always returns {@code false}.
+     *
+     * @return {@code false}
+     */
     @Override
     public boolean hasErrors() {
         return false;

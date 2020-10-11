@@ -8,6 +8,9 @@ import io.spreatty.codekata13.view.ConsoleTreeView;
 
 import java.io.File;
 
+/**
+ * A class-container for the application. Manages dependencies and controls main flow.
+ */
 public class Application {
     private SourceAnalyzer sourceAnalyzer;
     private FileReader fileReader;
@@ -18,7 +21,7 @@ public class Application {
         initializeDependencies();
 
         Node rootNode = fileCrawler.crawl(new File(input));
-        consoleTreeView.render(rootNode);
+        consoleTreeView.print(rootNode);
     }
 
     private void initializeDependencies() {

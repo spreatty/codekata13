@@ -4,6 +4,9 @@ import io.spreatty.codekata13.view.node.Node;
 
 import java.io.PrintStream;
 
+/**
+ * A class that prints tree structure using indentation of 4 spaces.
+ */
 public class ConsoleTreeView {
     private static final String TAB = "    ";
 
@@ -11,14 +14,38 @@ public class ConsoleTreeView {
 
     private String indentation = "";
 
+    /**
+     * Creates new instance of {@code ConsoleTreeView} for provided {@linkplain PrintStream}
+     *
+     * @param out
+     *        A {@link PrintStream} instance
+     *
+     * @throws NullPointerException
+     *         If print stream is {@code null}
+     */
     public ConsoleTreeView(PrintStream out) {
+        if (out == null) {
+            throw new NullPointerException();
+        }
         this.out = out;
     }
 
-    public void render(Node node) {
+    /**
+     * Prints tree structure starting from provided node.
+     *
+     * @param node
+     *        A starting point for this viewer
+     *
+     * @throws NullPointerException
+     *         if node is {@code null}
+     */
+    public void print(Node node) {
+        if (node == null) {
+            throw new NullPointerException();
+        }
         print(getNodeHeader(node));
         indent();
-        node.getChildren().forEach(this::render);
+        node.getChildren().forEach(this::print);
         unindent();
     }
 

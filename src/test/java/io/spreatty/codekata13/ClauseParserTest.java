@@ -13,10 +13,10 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class ClauseParserTest {
-    private int[] callCounter = new int[1];
-    private int expectedCallCount = 2;
+    private final int[] callCounter = new int[1];
+    private final int expectedCallCount = 2;
 
-    private Map<String, Clause<String>> clauses = Map.of(
+    private final Map<String, Clause<String>> clauses = Map.of(
             "hyphen", new Clause<>("hyphen", "-", "-"),
             "asymmetric", new Clause<>("asymmetric", "_", "="),
             "special", new Clause<>("special", "=>", "!", token -> {
@@ -24,7 +24,7 @@ public class ClauseParserTest {
                 return token.endsWith("&");
             }));
 
-    List<Parenthesis<String>> expectedParentheses = List.of(
+    private final List<Parenthesis<String>> expectedParentheses = List.of(
             new Parenthesis<>(null, "default parenthesis"),
             new Parenthesis<>("hyphen", "hyphen_parenthesis"),
             new Parenthesis<>("asymmetric", "asymmetric-parenthesis"),
@@ -34,7 +34,7 @@ public class ClauseParserTest {
                     "parenthesis with external closing validator! Requires & before closing &"),
             new Parenthesis<>(null, "final default parenthesis"));
 
-    private String source = expectedParentheses.stream()
+    private final String source = expectedParentheses.stream()
             .map(parenthesis -> Optional.ofNullable(parenthesis.getType())
                     .map(clauses::get)
                     .map(clause -> clause.getOpenString() + parenthesis.getToken()

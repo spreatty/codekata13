@@ -3,6 +3,13 @@ package io.spreatty.codekata13.util.clause;
 import java.util.Objects;
 import java.util.function.Predicate;
 
+/**
+ * POJO representing clause thing like "quoted parenthesis". POJO consists of type of desired
+ * class, opening sequence, closing sequence, and optional tester for special rules.
+ *
+ * @param <T>
+ *        A class type for {@code type} parameter
+ */
 public class Clause<T> {
     private final T type;
     private final String openString;
