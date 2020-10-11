@@ -1,9 +1,9 @@
-package io.spreatty.codekata13.file;
+package io.spreatty.codekata13.view.node;
 
 import java.util.Collections;
 import java.util.List;
 
-public class ErrorNode extends AbstractNode {
+public final class ErrorNode extends AbstractNode {
     @Override
     public int getLineCount() {
         return -1;

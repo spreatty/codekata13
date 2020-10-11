@@ -1,5 +1,6 @@
 package io.spreatty.codekata13.util.clause;
 
+import java.util.Objects;
 import java.util.function.Predicate;
 
 public class Clause<T> {
@@ -33,5 +34,24 @@ public class Clause<T> {
 
     public Predicate<String> getTokenTester() {
         return tokenTester;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object){
+            return true;
+        }
+        if (object == null || getClass() != object.getClass()){
+            return false;
+        }
+        Clause<?> clause = (Clause<?>) object;
+        return Objects.equals(type, clause.type) &&
+                Objects.equals(openString, clause.openString) &&
+                Objects.equals(closeString, clause.closeString);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type, openString, closeString);
     }
 }

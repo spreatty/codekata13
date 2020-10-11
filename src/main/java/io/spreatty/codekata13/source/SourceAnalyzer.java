@@ -26,13 +26,11 @@ public class SourceAnalyzer {
                     Predicate.not(SourceAnalyzer::isTrailingBackslashCorrupted)));
 
     private static final Map<Literal, Function<Parenthesis<Literal>, String>> PARENTHESIS_MAPPERS =
-            Map.of(
-                    Literal.SINGLE_LINE_COMMENT, any -> "\n",
+            Map.of(Literal.SINGLE_LINE_COMMENT, any -> "\n",
                     Literal.MULTI_LINE_COMMENT, parenthesis ->
                             parenthesis.getToken().contains("\n") ? "\n" : "",
                     Literal.STRING_LITERAL, any -> "\"\"",
-                    Literal.CHAR_LITERAL, any -> "''"
-            );
+                    Literal.CHAR_LITERAL, any -> "''");
 
     public int getLineCount(String source) {
         String unicodelessSource = Strings.translateUnicodes(source);

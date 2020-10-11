@@ -1,9 +1,7 @@
 package io.spreatty.codekata13;
 
-import java.io.FileNotFoundException;
-
 public class EntryPoint {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) {
         if (args.length == 0) {
             throw new IllegalArgumentException("No input provided");
         }

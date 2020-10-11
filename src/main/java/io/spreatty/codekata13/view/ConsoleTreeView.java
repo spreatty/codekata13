@@ -1,6 +1,6 @@
 package io.spreatty.codekata13.view;
 
-import io.spreatty.codekata13.file.Node;
+import io.spreatty.codekata13.view.node.Node;
 
 import java.io.PrintStream;
 
@@ -16,10 +16,6 @@ public class ConsoleTreeView {
     }
 
     public void render(Node node) {
-        if (node.getLineCount() == 0 && !node.hasErrors()) {
-            return;
-        }
-
         print(getNodeHeader(node));
         indent();
         node.getChildren().forEach(this::render);
